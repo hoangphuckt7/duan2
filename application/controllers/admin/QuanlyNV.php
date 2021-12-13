@@ -28,7 +28,7 @@ class QuanlyNV extends MY_Controller
 	}
 	function edit() 
 	{
-		//lay id cua quan tri vien can chinh sua
+		//lay id cua nhan vien can chinh sua
         $id = $this->uri->rsegment('3');
         $id = intval($id);
         
@@ -45,8 +45,8 @@ class QuanlyNV extends MY_Controller
             $this->form_validation->set_rules('username', 'Tài khoản', 'required|min_length[3]');        
             $this->form_validation->set_rules('phone',' Số điện thoại','required|min_length[10]');
             $this->form_validation->set_rules('chucvu',' Chức Vụ','required|min_length[2]');
-            $this->form_validation->set_rules('machucvu',' Mã Chức Vụ','required');
-            $this->form_validation->set_rules('password', 'Mật khẩu', 'required|min_length[4]');
+            $this->form_validation->set_rules('password', 'Mật khẩu', 'required|min_length[3]');
+            $this->form_validation->set_rules('re_password', 'Nhập lại mật khẩu', 'required|matches[password]');
             
             //nhập liệu chính xác
             if($this->form_validation->run())
@@ -57,7 +57,6 @@ class QuanlyNV extends MY_Controller
                 $password = $this->input->post('password');
                 $SDT = $this->input->post('phone');
                 $chucVu = $this->input->post('chucvu');
-                $maChucVu = $this->input->post('machucvu');
                 
                 $data = array(
                     
@@ -65,8 +64,7 @@ class QuanlyNV extends MY_Controller
                     'taiKhoan' => $taiKhoan,                   
                     'password' => md5($password),
                     'SDT'  => $SDT,
-                    'chucVu'=> $chucVu,
-                    'maChucVu'=> $maChucVu
+                    'chucVu'=> $chucVu
                 );
                
                 if($this->nhanvien_model->update($id, $data))
@@ -99,8 +97,7 @@ class QuanlyNV extends MY_Controller
             $this->form_validation->set_rules('username', 'Tài khoản', 'required|min_length[3]');        
             $this->form_validation->set_rules('phone',' Số điện thoại','required|min_length[10]');
             $this->form_validation->set_rules('chucvu',' Chức Vụ','required|min_length[2]');
-            $this->form_validation->set_rules('machucvu',' Mã Chức Vụ','required');
-            $this->form_validation->set_rules('password', 'Mật khẩu', 'required|min_length[4]');
+            $this->form_validation->set_rules('password', 'Mật khẩu', 'required|min_length[3]');
             $this->form_validation->set_rules('re_password', 'Nhập lại mật khẩu', 'required|matches[password]');
             
             //nhập liệu chính xác
@@ -111,8 +108,7 @@ class QuanlyNV extends MY_Controller
                 $taiKhoan = $this->input->post('username');
                 $password = $this->input->post('password');
                 $SDT = $this->input->post('phone');
-                $ChucVu = $this->input->post('chucvu');
-                $maChucVu = $this->input->post('machucvu');
+                $chucVu = $this->input->post('chucvu');
                 
                 $data = array(
                     
@@ -120,8 +116,7 @@ class QuanlyNV extends MY_Controller
                     'taiKhoan' => $taiKhoan,                   
                     'password' => md5($password),
                     'SDT'  => $SDT,
-                    'chucVu'=> $chucVu,
-                    'maChucVu'=> $maChucVu,
+                    'chucVu'=> $chucVu
                 );
                
                 if($this->nhanvien_model->create($data))

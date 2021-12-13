@@ -23,7 +23,6 @@
               <th>KINH ĐỘ</th>
               <th>VĨ ĐỘ</th>
               <th>ĐỊA CHỈ</th>
-              <th>TÊN KHU VỰC</th>
               <th>TRẠNG THÁI</th>
               <th>HÀNH ĐỘNG</th>
             </tr>
@@ -35,9 +34,13 @@
                     <td><?php echo $row->longitude?></td>
                     <td><?php echo $row->latitude?></td>
                     <td><?php echo $row->diaChi?></td>
-                    <td><?php echo $row->tenKhuVuc?></td>
-                    <td><?php echo $row->trangThai?></td>
-                    <td class="option">                
+                    <td class="trangthai">
+                        <input type="checkbox" name="checkbox[]" data-id="<?= $row->id; ?>" <?=$row->trangThai?"checked":""?>/>
+                    </td>
+                    <td class="option">         
+                        <!-- <a href="<?php echo admin_url('add_diemgiao/edit/'.$row->id); ?>" title="accept" class="accept" >
+                          <i class="fas fa-check" style="margin-left: 20px;"></i>
+                        </a>        -->
                         <a href="<?php echo admin_url('add_diemgiao/delete/'.$row->id); ?>" title="Xóa" class="tipS verify_action" >
                             <i class="fa fa-trash " style="margin-left: 20px;"></i>
                         </a>
@@ -46,7 +49,7 @@
             <?php endforeach;?>
         </tbody>
     </table>
-
+<!-- form add -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -96,4 +99,39 @@
             </div>
         </div>
     </div>
-</section>
+<form method="POST" name="edit" action="<?php echo admin_url('Add_diemgiao/edit')?>">
+    <!-- <input type="hidden" name="accept"></form> -->
+</form>
+
+<script type="text/javascript">
+    var checkBox = $('input[name="checkbox[]"]');
+    var editForm = $('form[name="edit"]');
+    var inputAccept = $('input[name="accept"]');
+
+
+    checkBox.click(function(){
+        //console.log(this.getAttribute("data-id"));
+        let id = this.getAttribute("data-id");
+        let trangThai = 0;
+        if(this.checked){
+            console.log("true");
+            trangThai = 1;
+        }
+
+        let obj = {
+            id,
+            trangThai
+        };
+
+        $.ajax({
+            url: "<?php echo admin_url('Add_diemgiao/edit')?>",
+            type: "POST",
+            data: obj,
+            success: function(result){
+                console.log(result);
+            }
+        });
+
+        //console.log(obj);
+    })
+</script>

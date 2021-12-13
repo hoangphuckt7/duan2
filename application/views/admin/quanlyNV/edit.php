@@ -13,7 +13,6 @@
             </a></li>
         </ul>
   </div>
-
     <div class="clear"></div>
     <form class="form-horizontal" action="<?php admin_url('quanlyNV/edit')?>" method="post">
         <div class="box-body p-3">
@@ -40,12 +39,6 @@
                 <input type="text" class="form-control" name="chucvu" id="chucvu" value="<?php echo $infor->chucVu?>">
                 <span name="Chucvu_autocheck" class="autocheck"></span>
                 <div name="Chucvu_error" style="color: red;"><?php echo form_error('chucvu')?></div>
-            </div>
-            <div class="form-group mt-3">
-                <label for="machucvu">Chức Vụ :</label>
-                <input type="text" class="form-control" name="machucvu" id="machucvu" value="<?php echo $infor->maChucVu?>">
-                <span name="Machucvu_autocheck" class="autocheck"></span>
-                <div name="Machucvu_error" style="color: red;"><?php echo form_error('machucvu')?></div>
             </div>
             <div class="form-group mt-3">
                 <label for="password">Mật Khẩu :</label>

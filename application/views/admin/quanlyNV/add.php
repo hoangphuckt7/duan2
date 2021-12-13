@@ -43,12 +43,6 @@
             <div name="Chucvu_error" style="color: red;"><?php echo form_error('chucvu')?></div>
         </div>
         <div class="form-group mt-3">
-            <label for="machucvu">Mã Chức Vụ :</label>
-            <input type="machucvu" class="form-control" name="machucvu" id="machucvu" value="<?php echo set_value('machucvu')?>">
-            <span name="Machucvu_autocheck" class="autocheck"></span>
-            <div name="Machucvu_error" style="color: red;"><?php echo form_error('machucvu')?></div>
-        </div>
-        <div class="form-group mt-3">
             <label for="password">Mật Khẩu :</label>
             <input type="password" class="form-control" name="password" id="password" value="<?php echo set_value('password')?>">
             <span name="password_autocheck" class="autocheck"></span>

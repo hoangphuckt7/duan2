@@ -32,21 +32,18 @@ class Quanlykhuvuc extends MY_Controller
         if($this->input->post())
         {
            
-            $this->form_validation->set_rules('name', 'Tên Khu Vực', 'required|min_length[3]');
-            $this->form_validation->set_rules('makhuvuc', 'Mã Khu Vực', 'required|min_length[1]');        
+            $this->form_validation->set_rules('name', 'Tên Khu Vực', 'required|min_length[3]');       
             $this->form_validation->set_rules('trangthai','Trạng Thái','required|min_length[5]');
             
             //nhập liệu chính xác
             if($this->form_validation->run())
             {
                 //them vao csdl
-                $maKhuVuc      = $this->input->post('makhuvuc');
                 $tenKhuVuc     = $this->input->post('name');
                 $trangThai     = $this->input->post('trangthai');
                 
                 $data = array(
                     
-                    'maKhuVuc' => $maKhuVuc,
                     'tenKhuVuc'     => $tenKhuVuc, 
                     'trangThai'  => $trangThai,
                 );
@@ -80,21 +77,18 @@ class Quanlykhuvuc extends MY_Controller
         $this->data['infor'] = $infor;
 		if($this->input->post())
         {
-            $this->form_validation->set_rules('name', 'Tên Khu Vực', 'required|min_length[3]');
-            $this->form_validation->set_rules('makhuvuc', 'Mã Khu Vực', 'required|min_length[1]');        
+            $this->form_validation->set_rules('name', 'Tên Khu Vực', 'required|min_length[3]');       
             $this->form_validation->set_rules('trangthai','Trạng Thái','required|min_length[5]');
             
             //nhập liệu chính xác
             if($this->form_validation->run())
             {
                 //them vao csdl
-                $maKhuVuc      = $this->input->post('makhuvuc');
                 $tenKhuVuc     = $this->input->post('name');
                 $trangThai     = $this->input->post('trangthai');
                 
                 $data = array(
                     
-                    'maKhuVuc' => $maKhuVuc,
                     'tenKhuVuc'     => $tenKhuVuc, 
                     'trangThai'  => $trangThai,
                 );
@@ -138,7 +132,7 @@ class Quanlykhuvuc extends MY_Controller
 	}
 
     function diemgiao($id){
-        $this->data['list'] = $this->db->select("*")->from('diemgiao')->where("idKhuVuc", $id)->get()->result();
+        $this->data['list'] = $this->db->select("*")->from('tbldiemgiao')->where("idKhuVuc", $id)->get()->result();
 
         // echo $id ;
         // select * from diemgiao where idKhuVuc = 1;

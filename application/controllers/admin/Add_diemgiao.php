@@ -13,7 +13,6 @@ class Add_diemgiao extends MY_Controller
     function add()
     {
             $this->form_validation->set_rules('name','Tên Điểm Giao','required');
-            $this->form_validation->set_rules('tenkhuvuc','Tên Khu Vực','required');
             $this->form_validation->set_rules('diachi','Địa Chỉ','required');
             $this->form_validation->set_rules('kinhdo','Kinh Độ','required');
             $this->form_validation->set_rules('vido','Vĩ Độ','required');
@@ -26,7 +25,6 @@ class Add_diemgiao extends MY_Controller
             else{
             //     //them vao csdl
                 $tenDiemGiao      = $this->input->post('name');
-                $tenKhuVuc     = $this->input->post('tenkhuvuc');
                 $kinhDo     = $this->input->post('diachi');
                 $viDo     = $this->input->post('kinhdo');
                 $diaChi     = $this->input->post('vido');
@@ -36,7 +34,6 @@ class Add_diemgiao extends MY_Controller
                 $ndata = array(
 
                     'tenDiemGiao'       => $tenDiemGiao,
-                    'tenKhuVuc'         => $tenKhuVuc,
                     'longitude'         => $kinhDo,
                     'latitude'          => $viDo,
                     'diaChi'            => $diaChi,
@@ -54,11 +51,34 @@ class Add_diemgiao extends MY_Controller
             }
     }
 
+    function edit() 
+    {
+        if ($this->input->is_ajax_request()) {
+            //echo $this->input->post('id');
+            $id = $this->input->post('id');
+            $trangThai = $this->input->post('trangThai');
+
+            $data = array(
+
+                'trangThai'         => $trangThai
+            );
+
+            if($this->diemgiao_model->update($id, $data))
+                { 
+                    echo 'Thêm mới thành công';
+                    redirect($_SERVER['HTTP_REFERER']);
+                }else{
+                    echo 'Thêm mới không thành công';
+                }
+        }
+
+    }
+
     function delete()
     {
         $id = $this->uri->rsegment('3');
         $id = intval($id);
-        //lay thong tin cua quan tri vien
+        //lay thong tin 
         $info = $this->diemgiao_model->get_info($id);
         if(!$info)
         {

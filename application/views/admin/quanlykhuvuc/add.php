@@ -25,12 +25,6 @@
             <div name="name_error" style="color: red;"><?php echo form_error('name')?></div>
         </div>
         <div class="form-group mt-3">
-            <label for="makhuvuc">Mã Khu Vực :</label>
-            <input type="text" class="form-control" name="makhuvuc" id="makhuvuc" value="<?php echo set_value('makhuvuc')?>">
-            <span name="Makhuvuc_autocheck" class="autocheck"></span>
-            <div name="Makhuvuc_error" style="color: red;"><?php echo form_error('makhuvuc')?></div>
-        </div>
-        <div class="form-group mt-3">
             <label for="trangthai">Trạng Thái :</label>
             <input type="text" class="form-control" name="trangthai" id="trangthai" value="<?php echo set_value('trangthai')?>">
             <span name="Trangthai_autocheck" class="autocheck"></span>

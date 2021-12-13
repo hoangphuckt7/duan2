@@ -98,7 +98,7 @@ class Quanlysanpham extends MY_Controller
                 
                 $data = array(
                     
-                    'tenSP'     => $tenSP, 
+                    'tenSP'     => $tenSP,
                     'donGia' => $donGia,
                     'moTa'  => $moTa,
                 );

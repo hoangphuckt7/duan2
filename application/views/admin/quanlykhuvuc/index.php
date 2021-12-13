@@ -14,7 +14,7 @@
 
             <tr>
               <td>
-                <?php echo $row->maKhuVuc?>_0<?php echo $row->id?>
+                <?php echo $row->id?>
               </td>
               <td><?php echo $row->tenKhuVuc?></td>
               <td class="d-flex justify-content-around">
@@ -42,15 +42,15 @@
   $(document).ready( function () {
     $('#myTable').DataTable();
   } );
-  function check(){
-    var condition = document.querySelector('.condition');
-    var dataToggle = document.querySelector('[data-toggle]');
-    if(dataToggle.checked){
-      condition.textContent = "online"
-    }
-    else{
-      condition.textContent = "offline"
-      console.log(condition.innerText);
-    }
-  }
+  // function check(){
+  //   var condition = document.querySelector('.condition');
+  //   var dataToggle = document.querySelector('[data-toggle]');
+  //   if(dataToggle.checked){
+  //     condition.textContent = "online"
+  //   }
+  //   else{
+  //     condition.textContent = "offline"
+  //     console.log(condition.innerText);
+  //   }
+  // }
 </script>

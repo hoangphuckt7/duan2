@@ -3,7 +3,7 @@
       <table id="myTable" class="table text-center">
         <thead>
             <tr>
-              <th>MÃ NHÂN VIÊN</th>
+              <th>ID NHÂN VIÊN</th>
               <th>HỌ VÀ TÊN</th>
               <th>TÀI KHOẢN</th>
               <th>PHONE</th>
@@ -15,7 +15,7 @@
           <?php foreach ($list as $row):?>
 
             <tr>
-            <td><?php echo $row->maChucVu?>_000<?php echo $row->id?></td>
+            <td><?php echo $row->id?></td>
             <td><?php echo $row->tenNV?></td>
             <td><?php echo $row->taiKhoan?></td>
             <td><?php echo $row->SDT?></td>
