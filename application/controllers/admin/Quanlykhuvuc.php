@@ -109,7 +109,26 @@ class Quanlykhuvuc extends MY_Controller
 		$this->data['dulieu'] = 'admin/quanlykhuvuc/edit';
 		$this->load->view('admin/main', $this->data);
 	}
-	
+	function update() {
+        if ($this->input->is_ajax_request()) {
+            //echo $this->input->post('id');
+            $id = $this->input->post('id');
+            $trangThai = $this->input->post('trangThai');
+
+            $data = array(
+
+                'trangThai'         => $trangThai
+            );
+
+            if($this->khuvuc_model->update($id, $data))
+                { 
+                    echo 'Thêm mới thành công';
+                    redirect($_SERVER['HTTP_REFERER']);
+                }else{
+                    echo 'Thêm mới không thành công';
+                }
+        }
+    }
 	/*
      * Hàm xóa dữ liệu từng phần
      */

@@ -18,8 +18,7 @@
               </td>
               <td><?php echo $row->tenKhuVuc?></td>
               <td class="d-flex justify-content-around">
-                <div class="condition"><?php echo $row->trangThai?></div>
-                <!-- <input type="checkbox" data-toggle onclick="check();"> -->
+                <input type="checkbox" name="checkbox[]" data-id="<?= $row->id; ?>" <?=$row->trangThai?"checked":""?>>
               </td>
               <td class="option">
                 <a href="<?php echo admin_url('quanlykhuvuc/edit/'.$row->id); ?>" title="Chỉnh sửa" class="tipS ">
@@ -37,20 +36,39 @@
         <?php endforeach;?>
       </tbody>
       </table>
+      <!-- <form method="POST" name="edit" action="<?php echo admin_url('quanlykhuvuc/update')?>"></form> -->
 </section>
 <script type="text/javascript" >
   $(document).ready( function () {
     $('#myTable').DataTable();
   } );
-  // function check(){
-  //   var condition = document.querySelector('.condition');
-  //   var dataToggle = document.querySelector('[data-toggle]');
-  //   if(dataToggle.checked){
-  //     condition.textContent = "online"
-  //   }
-  //   else{
-  //     condition.textContent = "offline"
-  //     console.log(condition.innerText);
-  //   }
-  // }
+
+  var checkBox = $('input[name="checkbox[]"]');
+  var editForm = $('form[name="edit"]');
+
+  checkBox.click(function(){
+        //console.log(this.getAttribute("data-id"));
+        let id = this.getAttribute("data-id");
+        let trangThai = 0;
+        if(this.checked){
+            console.log("true");
+            trangThai = 1;
+        }
+
+        let obj = {
+            id,
+            trangThai
+        };
+
+        $.ajax({
+            url: "<?php echo admin_url('quanlykhuvuc/update')?>",
+            type: "POST",
+            data: obj,
+            success: function(result){
+                console.log(result);
+            }
+        });
+
+        //console.log(obj);
+    })
 </script>

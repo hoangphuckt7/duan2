@@ -99,23 +99,20 @@
             </div>
         </div>
     </div>
-<form method="POST" name="edit" action="<?php echo admin_url('Add_diemgiao/edit')?>">
-    <!-- <input type="hidden" name="accept"></form> -->
-</form>
+<form method="POST" name="edit" action="<?php echo admin_url('Add_diemgiao/edit')?>"></form>
 
 <script type="text/javascript">
     var checkBox = $('input[name="checkbox[]"]');
     var editForm = $('form[name="edit"]');
-    var inputAccept = $('input[name="accept"]');
 
 
     checkBox.click(function(){
         //console.log(this.getAttribute("data-id"));
         let id = this.getAttribute("data-id");
-        let trangThai = 0;
+        let trangThai = "0";
         if(this.checked){
             console.log("true");
-            trangThai = 1;
+            trangThai = "1";
         }
 
         let obj = {
