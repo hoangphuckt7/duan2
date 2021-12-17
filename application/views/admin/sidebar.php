@@ -19,7 +19,7 @@
         <!-- <span class="text-uppercase text-gray-500 text-sm fw-bold letter-spacing-0 mx-lg-2 heading">Main</span> -->
         <ul class="list-unstyled">
             <li class="sidebar-item">
-                <a class="sidebar-link" href="#">
+                <a class="sidebar-link" href="<?php echo admin_url('online');?>">
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                         <use xlink:href="#real-estate-1"> </use>
                     </svg>Home 
@@ -32,7 +32,7 @@
                     </svg>Quản Lý Nhân Viên 
                 </a>
                 <ul class="collapse list-unstyled " id="exampledropdownDropdown">
-                    <li><a class="sidebar-link" href="<?php echo admin_url('quanlyNV');?>">Kế Toán</a></li>
+                    <li><a class="sidebar-link" href="<?php echo admin_url('quanlyNV');?>">Nhân Viên</a></li>
                     <li><a class="sidebar-link" href="<?php echo admin_url('quantrivien');?>">Quản Trị Viên</a></li>
                 </ul>
             </li>

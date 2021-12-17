@@ -1,7 +1,7 @@
         <!-- Counts Section -->
         <section class="py-5">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row d-flex justify-content-around">
                     <!-- Count item widget-->
                     <div class="col-xl-2 col-md-4 col-6 gy-4 gy-xl-0">
                         <div class="d-flex">
@@ -9,9 +9,9 @@
                                 <use xlink:href="#user-1"> </use>
                             </svg>
                             <div class="ms-2">
-                                <h3 class="h4 text-dark text-uppercase fw-normal">New Clients</h3>
+                                <h3 class="h4 text-dark text-uppercase fw-normal">Nhân Viên</h3>
                                 <p class="text-gray-500 small">Last 7 days</p>
-                                <p class="display-6 mb-0">25</p>
+                                <p class="display-6 mb-0"><?= $total ?> </p> Người
                             </div>
                         </div>
                     </div>
@@ -22,9 +22,9 @@
                                 <use xlink:href="#survey-1"> </use>
                             </svg>
                             <div class="ms-2">
-                                <h3 class="h4 text-dark text-uppercase fw-normal">Work Orders</h3>
+                                <h3 class="h4 text-dark text-uppercase fw-normal">Khu Vực</h3>
                                 <p class="text-gray-500 small">Last 5 days</p>
-                                <p class="display-6 mb-0">400</p>
+                                <p class="display-6 mb-0"><?= $khuvuc_total ?></p> Khu Vực
                             </div>
                         </div>
                     </div>
@@ -35,35 +35,9 @@
                                 <use xlink:href="#list-details-1"> </use>
                             </svg>
                             <div class="ms-2">
-                                <h3 class="h4 text-dark text-uppercase fw-normal">New Quotes</h3>
+                                <h3 class="h4 text-dark text-uppercase fw-normal">Điểm Giao</h3>
                                 <p class="text-gray-500 small">Last 2 months</p>
-                                <p class="display-6 mb-0">342</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Count item widget-->
-                    <div class="col-xl-2 col-md-4 col-6 gy-4 gy-xl-0">
-                        <div class="d-flex">
-                            <svg class="svg-icon svg-icon-sm svg-icon-heavy text-primary mt-1 flex-shrink-0">
-                                <use xlink:href="#numbers-1"> </use>
-                            </svg>
-                            <div class="ms-2">
-                                <h3 class="h4 text-dark text-uppercase fw-normal">New Invoices</h3>
-                                <p class="text-gray-500 small">Last 2 days</p>
-                                <p class="display-6 mb-0">123</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Count item widget-->
-                    <div class="col-xl-2 col-md-4 col-6 gy-4 gy-xl-0">
-                        <div class="d-flex">
-                            <svg class="svg-icon svg-icon-sm svg-icon-heavy text-primary mt-1 flex-shrink-0">
-                                <use xlink:href="#literature-1"> </use>
-                            </svg>
-                            <div class="ms-2">
-                                <h3 class="h4 text-dark text-uppercase fw-normal">Open Cases</h3>
-                                <p class="text-gray-500 small">Last 3 months</p>
-                                <p class="display-6 mb-0">92</p>
+                                <p class="display-6 mb-0"><?= $diemgiao_total ?></p> Điểm Giao
                             </div>
                         </div>
                     </div>
@@ -74,9 +48,9 @@
                                 <use xlink:href="#paper-stack-1"> </use>
                             </svg>
                             <div class="ms-2">
-                                <h3 class="h4 text-dark text-uppercase fw-normal">New Cases</h3>
+                                <h3 class="h4 text-dark text-uppercase fw-normal">Sản Phẩm</h3>
                                 <p class="text-gray-500 small">Last 7 days</p>
-                                <p class="display-6 mb-0">70</p>
+                                <p class="display-6 mb-0"><?= $sanpham_total?></p> Sản Phẩm
                             </div>
                         </div>
                     </div>

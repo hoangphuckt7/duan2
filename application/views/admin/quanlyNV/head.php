@@ -1,5 +1,5 @@
 <div class="box-header">
-  <h2 class="box-title text-center text-uppercase">Quản lý nhân viên kế toán</h2>  
+  <h2 class="box-title text-center text-uppercase">Quản lý nhân viên</h2>  
 </div>
 <div class="menu_action">
     <ul>

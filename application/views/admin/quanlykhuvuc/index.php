@@ -27,7 +27,7 @@
                 <a href="<?php echo admin_url('quanlykhuvuc/delete/'.$row->id); ?>" title="Xóa" class="tipS verify_action" >
                   <i class="fa fa-trash " style="margin-left: 20px;"></i>
                 </a>
-                <a href="<?php echo admin_url('quanlykhuvuc/diemgiao/'.$row->id); ?>" title="thêm" class="tipS verify_action" >
+                <a href="<?php echo admin_url('quanlykhuvuc/diemgiao/'.$row->id); ?>" title="thêm" class="tipS verify_action add" <?=$row->trangThai?"":"hidden"?>>
                   <i class="fas fa-map-pin " style="margin-left: 20px;"></i>
                 </a>
               </td>
@@ -36,7 +36,6 @@
         <?php endforeach;?>
       </tbody>
       </table>
-      <!-- <form method="POST" name="edit" action="<?php echo admin_url('quanlykhuvuc/update')?>"></form> -->
 </section>
 <script type="text/javascript" >
   $(document).ready( function () {
@@ -47,11 +46,9 @@
   var editForm = $('form[name="edit"]');
 
   checkBox.click(function(){
-        //console.log(this.getAttribute("data-id"));
         let id = this.getAttribute("data-id");
         let trangThai = 0;
         if(this.checked){
-            console.log("true");
             trangThai = 1;
         }
 
