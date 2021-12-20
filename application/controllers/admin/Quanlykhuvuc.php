@@ -157,9 +157,16 @@ class Quanlykhuvuc extends MY_Controller
         // select * from diemgiao where idKhuVuc = 1;
         // echo "<pre>";var_dump($this->data);exit();
         //lấy tên khu vực
+
         $infor  = $this->khuvuc_model->get_info($id);
         $this->data['infor'] = $infor;
 
+        $input = array();
+		$list_khuvuc = $this->khuvuc_model->get_list($input);
+		$this->data['list_khuvuc'] = $list_khuvuc;
+
+        $infor_khuvuc  = $this->khuvuc_model->get_info($id);
+        $this->data['infor_khuvuc'] = $infor_khuvuc;
         
         $this->data['id'] = $id;
         $this->data['dulieu'] = 'admin/quanlykhuvuc/diemgiao';

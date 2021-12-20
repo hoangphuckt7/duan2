@@ -13,21 +13,22 @@
           <?php foreach ($list as $row):?>
 
             <tr>
-              <td>
-                <?php echo $row->id?>
+              <td class="id">
+                <?= $row->id?>
               </td>
               <td><?php echo $row->tenKhuVuc?></td>
               <td class="d-flex justify-content-around">
-                <input type="checkbox" name="checkbox[]" data-id="<?= $row->id; ?>" <?=$row->trangThai?"checked":""?>>
+                <input type="checkbox" name="checkbox[]" data-id="<?= $row->id; ?>" <?=$row->trangThai?"checked":""?>
+                <?=$row->id == "01"? "disabled":""?>>
               </td>
               <td class="option">
-                <a href="<?php echo admin_url('quanlykhuvuc/edit/'.$row->id); ?>" title="Chỉnh sửa" class="tipS ">
+                <a href="<?php echo admin_url('quanlykhuvuc/edit/'.$row->id); ?>" title="Chỉnh sửa" class="tipS " <?=$row->id == "01"? "hidden":""?>>
                   <i class="fa fa-edit" style="margin-left: 20px;"></i>
                 </a>                    
-                <a href="<?php echo admin_url('quanlykhuvuc/delete/'.$row->id); ?>" title="Xóa" class="tipS verify_action" >
+                <a href="<?php echo admin_url('quanlykhuvuc/delete/'.$row->id); ?>" title="Xóa" class="tipS verify_action" <?=$row->id == "01"? "hidden":""?>>
                   <i class="fa fa-trash " style="margin-left: 20px;"></i>
                 </a>
-                <a href="<?php echo admin_url('quanlykhuvuc/diemgiao/'.$row->id); ?>" title="thêm" class="tipS verify_action add" <?=$row->trangThai?"":"hidden"?>>
+                <a href="<?php echo admin_url('quanlykhuvuc/diemgiao/'.$row->id); ?>" title="thêm" class="tipS verify_action add" > <!-- <?=$row->id == "01"? "":"" ?> <?=$row->trangThai?"":"hidden"?> -->
                   <i class="fas fa-map-pin " style="margin-left: 20px;"></i>
                 </a>
               </td>
@@ -47,9 +48,9 @@
 
   checkBox.click(function(){
         let id = this.getAttribute("data-id");
-        let trangThai = 0;
+        let trangThai = "0";
         if(this.checked){
-            trangThai = 1;
+            trangThai = "1";
         }
 
         let obj = {

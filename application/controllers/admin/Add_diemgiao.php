@@ -50,6 +50,32 @@ class Add_diemgiao extends MY_Controller
                 }
             }
     }
+    function update()
+    {   
+            $this->form_validation->set_rules('makhuvuc','makhuvuc');
+            $this->form_validation->set_rules('id','id','required');
+
+            if($this->form_validation->run() == FALSE){
+                echo validation_errors();
+            }
+            else{
+            //     //them vao csdl
+                $makhuvuc     = $this->input->post('makhuvuc');
+                $id     = $this->input->post('id');
+
+                $data = array(
+                    'idKhuVuc'         => $makhuvuc
+                );
+
+                if($this->diemgiao_model->update($id, $data))
+                { 
+                    echo 'Thêm mới thành công';
+                    redirect($_SERVER['HTTP_REFERER']);
+                }else{
+                    echo 'Thêm mới không thành công';
+                }
+            }
+    }
 
     function edit() 
     {

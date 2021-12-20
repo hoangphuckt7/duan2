@@ -32,6 +32,10 @@ class Online extends MY_Controller
 			$sanpham_total = $this->sanpham_model->get_total();
         	$this->data['sanpham_total'] = $sanpham_total;
 
+			$input = array();
+			$list = $this->khuvuc_model->get_list($input);
+			$this->data['list'] = $list;
+
 			$this->data['dulieu'] = 'admin/online/index';
 			$this->load->view('admin/main', $this->data);
 	}
